@@ -181,7 +181,8 @@ class ApiResource extends Object
         // Weird request requires us to build the cURL request manually
         $params = '';
         foreach ($answers as $key => $value) {
-            $params = $params . 'answers[][{$key}]={$value}&';
+            $params = $params . 'answers[][question_id]=' . $value['question_id'] . '&';
+            $params .= 'answers[][answer_id]=' . $value['answer_id'] . '&';
         }
         rtrim($params, '&');
 
